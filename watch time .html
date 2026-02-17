@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Watch Time Calculator by Tech head lk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 320px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #2a5298;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            background: #2a5298;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #1e3c72;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Watch Time Calculator by tech head lk</h2>
+
+    <input type="number" id="length" placeholder="Video Length (minutes)">
+    <input type="number" id="views" placeholder="Number of Views">
+
+    <button onclick="calculateWatchTime()">Calculate</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculateWatchTime() {
+    var length = document.getElementById("length").value;
+    var views = document.getElementById("views").value;
+
+    if(length === "" || views === "") {
+        document.getElementById("result").innerHTML = "Please fill all fields!";
+        return;
+    }
+
+    var totalMinutes = length * views;
+    var totalHours = totalMinutes / 60;
+
+    document.getElementById("result").innerHTML =
+        "Total Watch Time: " + totalHours.toFixed(2) + " hours";
+}
+</script>
+
+</body>
+</html>
